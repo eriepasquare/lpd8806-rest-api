@@ -1,6 +1,6 @@
 'use strict';
 
-//var leds = require('lpd8806-asyncfx')(48, '/dev/spidev0.1');
+var leds = require('lpd8806-asyncfx')(48, '/dev/spidev0.1');
 
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
