@@ -1,0 +1,217 @@
+# API spec for http://github.com/eriepasquare/lpd8806-rest-api
+swagger: '2.0'
+info:
+  title: LPD8806 Async REST API
+  description: "A REST API that exposes the LED light strip animations provided by lpd8806-asyncfx (which wraps the lpd8806-async module).  The following animations can be configured (color, speed, brightness) and started: chase, flow, join, pulse, rainbow, rave"
+  version: "1.0.0"
+# the domain of the service
+host: 127.0.0.1:10010
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /api
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /v1/chase:
+    x-swagger-router-controller: animate
+    get:
+      description: Start the colorChase animation exposed by lpd8806-asyncfx
+      operationId: v1ChaseGET
+      parameters:
+        - $ref: "#/parameters/r"
+        - $ref: "#/parameters/g"
+        - $ref: "#/parameters/b"
+        - $ref: "#/parameters/speed"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/flow:
+    x-swagger-router-controller: animate
+    get:
+      description: Start the flow animation exposed by lpd8806-asyncfx (also known as the Knight Rider affect)
+      operationId: v1FlowGET
+      parameters:
+        - $ref: "#/parameters/r"
+        - $ref: "#/parameters/g"
+        - $ref: "#/parameters/b"
+        - $ref: "#/parameters/brightness"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/join:
+    x-swagger-router-controller: animate
+    get:
+      description: Start the joinEffect animation exposed by lpd8806-asyncfx
+      operationId: v1JoinGET
+      parameters:
+        - $ref: "#/parameters/brightness"
+        - $ref: "#/parameters/r"
+        - $ref: "#/parameters/g"
+        - $ref: "#/parameters/b"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/pulse:
+    x-swagger-router-controller: animate
+    get:
+      description: Start the pulseColor animation exposed by lpd8806-asyncfx (can also achieve a 'blink' affect when the speed is set fast enough).
+      operationId: v1PulseGET
+      parameters:
+        - $ref: "#/parameters/r"
+        - $ref: "#/parameters/g"
+        - $ref: "#/parameters/b"
+        - $ref: "#/parameters/speed"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/rainbow:
+    x-swagger-router-controller: animate
+    get:
+      description: Start the rainbow animation exposed by lpd8806-asyncfx
+      operationId: v1RainbowGET
+      parameters:
+        - $ref: "#/parameters/brightness"
+        - $ref: "#/parameters/speed"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: "#/definitions/animationResponse"
+        default:
+          description: Unexpected error
+          schema:
+            $ref: "#/definitions/Error"
+  /v1/rave:
+    x-swagger-router-controller: animate
+    get:
+      description: Start the rave animation exposed by lpd8806-asyncfx.  Randomly color each led on/off with random colors.
+      operationId: v1RaveGET
+      parameters:
+        - $ref: "#/parameters/speed"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+parameters:
+  brightness:
+    name: brightness
+    in: query
+    description: brightness of the LED light strip.
+    required: true
+    type: string
+    enum:
+      - brightest
+      - brighter
+      - bright
+      - normal
+      - dim
+      - dimmer
+      - dimmest
+  speed:
+    name: speed
+    in: query
+    description: speed of the LED animation.
+    required: true
+    type: string
+    enum:
+      - fastest
+      - faster
+      - fast
+      - normal
+      - slow
+      - slower
+      - slowest
+  r:
+    name: r
+    in: query
+    description: intensity of red component in the RGB color model.
+    required: true
+    type: number
+    format: integer
+    minimum: 0
+    maximum: 255
+  g:
+    name: g
+    in: query
+    description: intensity of green component in the RGB color model.
+    required: true
+    type: number
+    format: integer
+    minimum: 0
+    maximum: 255
+  b:
+    name: b
+    in: query
+    description: intensity of blue component in the RGB color model.
+    required: true
+    type: number
+    format: integer
+    minimum: 0
+    maximum: 255
+
+definitions:
+  animationResponse:
+    type: object
+    properties:
+      animation:
+        type: string
+        description: Name of animation.
+      status:
+        type: string
+        description: Status of the animation (running, stopped).
+      properties:
+        type: array
+        items:
+          type: object
+          properties:
+            property:
+              type: string
+              description: name of the property
+            value:
+              type: string
+              description: value of the property
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
