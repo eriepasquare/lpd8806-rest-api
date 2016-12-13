@@ -5,7 +5,7 @@ info:
   description: "A REST API that exposes the LED light strip animations provided by lpd8806-asyncfx (which wraps the lpd8806-async module).  The following animations can be configured (color, speed, brightness) and started: chase, flow, join, pulse, rainbow, rave"
   version: "1.0.0"
 # the domain of the service
-host: 127.0.0.1:10010
+host: 127.0.0.1:10030
 # array of all schemes that your API supports
 schemes:
   - http
