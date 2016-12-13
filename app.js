@@ -1,7 +1,5 @@
 'use strict';
 
-var leds = require('lpd8806-asyncfx')(48, '/dev/spidev0.1');
-
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
 module.exports = app; // for testing
@@ -22,10 +20,4 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (swaggerExpress.runner.swagger.paths['/api']) {
     console.log('try this:\ncurl http://127.0.0.1:' + port + '/rave?speed=normal');
   }
-});
-
-process.on('SIGINT', function() {
-    leds.off();
-    // Trigger exit process
-    process.exit(0);
 });
