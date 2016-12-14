@@ -237,7 +237,7 @@ exports.v1PauseGET = function(args, res, next) {
   /**
    * NO parameters expected in the args:
   **/
-  leds.stopAnimation;
+  leds.stopAnimation();
   var examples = {};
   examples['application/json'] = {
     "properties" : [],
@@ -258,7 +258,7 @@ exports.v1StopGET = function(args, res, next) {
   /**
    * NO parameters expected in the args:
   **/
-  leds.off;
+  leds.off();
   var examples = {};
   examples['application/json'] = {
     "properties" : [],
