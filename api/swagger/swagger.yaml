@@ -2,7 +2,7 @@
 swagger: '2.0'
 info:
   title: LPD8806 Async REST API
-  description: "A REST API that exposes the LED light strip animations provided by lpd8806-asyncfx (which wraps the lpd8806-async module).  The following animations can be configured (color, speed, brightness) and started: chase, flow, join, pulse, rainbow, rave"
+  description: "A REST API that exposes the LED light strip animations provided by lpd8806-asyncfx (which wraps the lpd8806-async module).  The following animations can be configured (color, speed, brightness) and started: chase, flow, join, pulse, rainbow, rave, pause, stop"
   version: "1.0.0"
 # uncomment following line for testing in swagger editor
 #host: localhost:10030
@@ -18,7 +18,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Start the colorChase animation exposed by lpd8806-asyncfx
-      operationId: v1ChaseGET
+      operationId: v1ChasePOST
       parameters:
         - $ref: "#/parameters/r"
         - $ref: "#/parameters/g"
@@ -37,7 +37,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Start the flow animation exposed by lpd8806-asyncfx (also known as the Knight Rider affect)
-      operationId: v1FlowGET
+      operationId: v1FlowPOST
       parameters:
         - $ref: "#/parameters/r"
         - $ref: "#/parameters/g"
@@ -56,7 +56,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Start the joinEffect animation exposed by lpd8806-asyncfx
-      operationId: v1JoinGET
+      operationId: v1JoinPOST
       parameters:
         - $ref: "#/parameters/brightness"
         - $ref: "#/parameters/r"
@@ -75,7 +75,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Start the pulseColor animation exposed by lpd8806-asyncfx (can also achieve a 'blink' affect when the speed is set fast enough).
-      operationId: v1PulseGET
+      operationId: v1PulsePOST
       parameters:
         - $ref: "#/parameters/r"
         - $ref: "#/parameters/g"
@@ -94,7 +94,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Start the rainbow animation exposed by lpd8806-asyncfx
-      operationId: v1RainbowGET
+      operationId: v1RainbowPOST
       parameters:
         - $ref: "#/parameters/brightness"
         - $ref: "#/parameters/speed"
@@ -111,7 +111,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Start the rave animation exposed by lpd8806-asyncfx.  Randomly color each led on/off with random colors.
-      operationId: v1RaveGET
+      operationId: v1RavePOST
       parameters:
         - $ref: "#/parameters/speed"
       responses:
@@ -127,7 +127,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Pause the active animation.
-      operationId: v1PauseGET
+      operationId: v1PausePOST
       responses:
         200:
           description: State of animation requested
@@ -141,7 +141,7 @@ paths:
     x-swagger-router-controller: animate
     post:
       description: Stop the active animation.
-      operationId: v1StopGET
+      operationId: v1StopPOST
       responses:
         200:
           description: State of animation requested
