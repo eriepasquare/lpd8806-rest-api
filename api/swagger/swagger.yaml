@@ -16,7 +16,7 @@ produces:
 paths:
   /v1/chase:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Start the colorChase animation exposed by lpd8806-asyncfx
       operationId: v1ChaseGET
       parameters:
@@ -35,7 +35,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/flow:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Start the flow animation exposed by lpd8806-asyncfx (also known as the Knight Rider affect)
       operationId: v1FlowGET
       parameters:
@@ -54,7 +54,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/join:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Start the joinEffect animation exposed by lpd8806-asyncfx
       operationId: v1JoinGET
       parameters:
@@ -73,7 +73,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/pulse:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Start the pulseColor animation exposed by lpd8806-asyncfx (can also achieve a 'blink' affect when the speed is set fast enough).
       operationId: v1PulseGET
       parameters:
@@ -92,7 +92,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/rainbow:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Start the rainbow animation exposed by lpd8806-asyncfx
       operationId: v1RainbowGET
       parameters:
@@ -109,7 +109,7 @@ paths:
             $ref: "#/definitions/Error"
   /v1/rave:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Start the rave animation exposed by lpd8806-asyncfx.  Randomly color each led on/off with random colors.
       operationId: v1RaveGET
       parameters:
@@ -125,7 +125,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/pause:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Pause the active animation.
       operationId: v1PauseGET
       responses:
@@ -139,7 +139,7 @@ paths:
             $ref: '#/definitions/Error'
   /v1/stop:
     x-swagger-router-controller: animate
-    get:
+    post:
       description: Stop the active animation.
       operationId: v1StopGET
       responses:

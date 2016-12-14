@@ -6,34 +6,34 @@ var url = require('url');
 var Animate = require('./animateService');
 
 
-module.exports.v1ChaseGET = function v1ChaseGET (req, res, next) {
-  Animate.v1ChaseGET(req.swagger.params, res, next);
+module.exports.v1ChasePOST = function v1ChasePOST (req, res, next) {
+  Animate.v1ChasePOST(req.swagger.params, res, next);
 };
 
-module.exports.v1FlowGET = function v1FlowGET (req, res, next) {
-  Animate.v1FlowGET(req.swagger.params, res, next);
+module.exports.v1FlowPOST = function v1FlowPOST (req, res, next) {
+  Animate.v1FlowPOST(req.swagger.params, res, next);
 };
 
-module.exports.v1JoinGET = function v1JoinGET (req, res, next) {
-  Animate.v1JoinGET(req.swagger.params, res, next);
+module.exports.v1JoinPOST = function v1JoinPOST (req, res, next) {
+  Animate.v1JoinPOST(req.swagger.params, res, next);
 };
 
-module.exports.v1PulseGET = function v1PulseGET (req, res, next) {
-  Animate.v1PulseGET(req.swagger.params, res, next);
+module.exports.v1PulsePOST = function v1PulsePOST (req, res, next) {
+  Animate.v1PulsePOST(req.swagger.params, res, next);
 };
 
-module.exports.v1RainbowGET = function v1RainbowGET (req, res, next) {
-  Animate.v1RainbowGET(req.swagger.params, res, next);
+module.exports.v1RainbowPOST = function v1RainbowPOST (req, res, next) {
+  Animate.v1RainbowPOST(req.swagger.params, res, next);
 };
 
-module.exports.v1RaveGET = function v1RaveGET (req, res, next) {
-  Animate.v1RaveGET(req.swagger.params, res, next);
+module.exports.v1RavePOST = function v1RavePOST (req, res, next) {
+  Animate.v1RavePOST(req.swagger.params, res, next);
 };
 
-module.exports.v1PauseGET = function v1PauseGET (req, res, next) {
-  Animate.v1PauseGET(req.swagger.params, res, next);
+module.exports.v1PausePOST = function v1PausePOST (req, res, next) {
+  Animate.v1PausePOST(req.swagger.params, res, next);
 };
 
-module.exports.v1StopGET = function v1StopGET (req, res, next) {
-  Animate.v1StopGET(req.swagger.params, res, next);
+module.exports.v1StopPOST = function v1StopPOST (req, res, next) {
+  Animate.v1StopPOST(req.swagger.params, res, next);
 };

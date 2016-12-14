@@ -12,7 +12,7 @@ var brightnessDecoderRing = {
   "dimmest":  0.15
 };
 
-exports.v1ChaseGET = function(args, res, next) {
+exports.v1ChasePOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * r (BigDecimal)
@@ -52,7 +52,7 @@ exports.v1ChaseGET = function(args, res, next) {
 
 }
 
-exports.v1FlowGET = function(args, res, next) {
+exports.v1FlowPOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * r (BigDecimal)
@@ -85,7 +85,7 @@ exports.v1FlowGET = function(args, res, next) {
 
 }
 
-exports.v1JoinGET = function(args, res, next) {
+exports.v1JoinPOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * brightness (String)
@@ -118,7 +118,7 @@ exports.v1JoinGET = function(args, res, next) {
 
 }
 
-exports.v1PulseGET = function(args, res, next) {
+exports.v1PulsePOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * r (BigDecimal)
@@ -159,7 +159,7 @@ exports.v1PulseGET = function(args, res, next) {
 
 }
 
-exports.v1RainbowGET = function(args, res, next) {
+exports.v1RainbowPOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * brightness (String)
@@ -197,7 +197,7 @@ exports.v1RainbowGET = function(args, res, next) {
 
 }
 
-exports.v1RaveGET = function(args, res, next) {
+exports.v1RavePOST = function(args, res, next) {
   /**
    * parameters expected in the args:
   * speed (String)
@@ -233,7 +233,7 @@ exports.v1RaveGET = function(args, res, next) {
 }
 
 
-exports.v1PauseGET = function(args, res, next) {
+exports.v1PausePOST = function(args, res, next) {
   /**
    * NO parameters expected in the args:
   **/
@@ -254,7 +254,7 @@ exports.v1PauseGET = function(args, res, next) {
 
 }
 
-exports.v1StopGET = function(args, res, next) {
+exports.v1StopPOST = function(args, res, next) {
   /**
    * NO parameters expected in the args:
   **/
