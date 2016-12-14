@@ -1,5 +1,5 @@
 'use strict';
-var led_count = process.env.LPD8806_LED_COUNT || 32;
+var led_count = parseInt(process.env.LPD8806_LED_COUNT, 10) || 32;
 var device_name = process.env.LPD8806_DEVICE_NAME || '/dev/spidev0.1'
 var leds = require('lpd8806-asyncfx')(led_count, device_name);
 var brightnessDecoderRing = {
