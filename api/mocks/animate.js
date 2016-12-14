@@ -29,3 +29,11 @@ module.exports.v1RainbowGET = function v1RainbowGET (req, res, next) {
 module.exports.v1RaveGET = function v1RaveGET (req, res, next) {
   Animate.v1RaveGET(req.swagger.params, res, next);
 };
+
+module.exports.v1PauseGET = function v1PauseGET (req, res, next) {
+  Animate.v1PauseGET(req.swagger.params, res, next);
+};
+
+module.exports.v1StopGET = function v1StopGET (req, res, next) {
+  Animate.v1StopGET(req.swagger.params, res, next);
+};

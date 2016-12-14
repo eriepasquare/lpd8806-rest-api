@@ -4,13 +4,13 @@ info:
   title: LPD8806 Async REST API
   description: "A REST API that exposes the LED light strip animations provided by lpd8806-asyncfx (which wraps the lpd8806-async module).  The following animations can be configured (color, speed, brightness) and started: chase, flow, join, pulse, rainbow, rave"
   version: "1.0.0"
+# uncomment following line for testing in swagger editor
+#host: localhost:10030
 # array of all schemes that your API supports
 schemes:
   - http
 # will be prefixed to all paths
 basePath: /api
-consumes:
-  - application/json
 produces:
   - application/json
 paths:
@@ -114,6 +114,34 @@ paths:
       operationId: v1RaveGET
       parameters:
         - $ref: "#/parameters/speed"
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/pause:
+    x-swagger-router-controller: animate
+    get:
+      description: Pause the active animation.
+      operationId: v1PauseGET
+      responses:
+        200:
+          description: State of animation requested
+          schema:
+            $ref: '#/definitions/animationResponse'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /v1/stop:
+    x-swagger-router-controller: animate
+    get:
+      description: Stop the active animation.
+      operationId: v1StopGET
       responses:
         200:
           description: State of animation requested

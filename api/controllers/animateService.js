@@ -232,6 +232,49 @@ exports.v1RaveGET = function(args, res, next) {
 
 }
 
+
+exports.v1PauseGET = function(args, res, next) {
+  /**
+   * NO parameters expected in the args:
+  **/
+  leds.stopAnimation;
+  var examples = {};
+  examples['application/json'] = {
+    "properties" : [],
+    "animation" : "pause",
+    "status" : "paused"
+  };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+
+}
+
+exports.v1StopGET = function(args, res, next) {
+  /**
+   * NO parameters expected in the args:
+  **/
+  leds.off;
+  var examples = {};
+  examples['application/json'] = {
+    "properties" : [],
+    "animation" : "stop",
+    "status" : "stopped"
+  };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+
+}
+
 process.on('SIGINT', function() {
     leds.off();
     // Trigger exit process
