@@ -17,10 +17,12 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   // install middleware
   swaggerExpress.register(app);
 
-  var port = process.env.PORT || 10030;
+  var port = process.env.LPD8806_PORT || 10030;
   app.listen(port);
 
-  if (swaggerExpress.runner.swagger.paths['/api']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/rave?speed=normal');
+  console.log('SwaggerUi: http://127.0.0.1:' + port + '/docs');
+
+  if (swaggerExpress.runner.swagger.paths['/v1/rave']) {
+    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/rave?speed=normal');
   }
 });
