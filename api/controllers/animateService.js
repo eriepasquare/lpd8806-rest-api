@@ -127,13 +127,13 @@ exports.v1PulsePOST = function(args, res, next) {
   * speed (String)
   **/
   var speedDecoderRing = {
-    "fastest": 0.09,
-    "faster":  0.063,
-    "fast":    0.036,
-    "normal":  0.009,
-    "slow":    0.0063,
-    "slower":  0.0036,
-    "slowest": 0.0009
+    "fastest": 5,
+    "faster":  25,
+    "fast":    50,
+    "normal":  75,
+    "slow":    100,
+    "slower":  125,
+    "slowest": 150
   };
   var speed = speedDecoderRing[args.speed.value];
   leds.pulseColor(args.r.value, args.g.value, args.b.value, speed);
